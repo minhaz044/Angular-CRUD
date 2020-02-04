@@ -36,4 +36,20 @@ export class EmployeeService {
 		let url=this.employeeBaseUrl+'/delete/'+employeeId;
 		return this.httpClient.get<boolean>(url);
 	}
+
+	uploadFile(file:File){
+		let formData=new FormData();
+		formData.append('files',file,file.name);
+		formData.append('id','10');
+		formData.append('name','file,file.name');
+
+		name
+		this.httpClient.post(this.employeeBaseUrl+'/upload',formData).subscribe(
+      		(response) => console.log(response),
+      		(error) => console.log(error)
+    	)
+
+		alert("Submited");
+
+	}
 }

@@ -16,6 +16,7 @@ export class EmployeeComponent implements OnInit {
   }
   loadEmployeeList(){
   	this.employeeList=this.employeeService.loadAllEmployee().subscribe(data => this.employeeList =data);
+
   }
 
 }

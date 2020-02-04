@@ -12,7 +12,7 @@ export class EmployeeDeleteComponent implements OnInit {
 
   constructor(private router:Router,private route :ActivatedRoute,private employeeService :EmployeeService) { }
   private deleteId:number=null;
-
+  public files:File;
    ngOnInit() {
   	let data:number= +this.route.snapshot.paramMap.get('id');
 	  if(data==null && !(data > 0)){
@@ -30,4 +30,19 @@ export class EmployeeDeleteComponent implements OnInit {
  			}
  		});
  	}
+	upload(){
+		if(this.files){
+					this.employeeService.uploadFile(this.files);
+		}else{
+			alert("No File Selected");
+		}
+	}
+	changeFile(res){
+		this.files=res[0];
+		console.log(res[0]);
+	}
+	
+
+
+
 }
